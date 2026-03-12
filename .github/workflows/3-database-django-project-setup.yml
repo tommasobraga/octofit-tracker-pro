@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "build-octofit-app"
+      - "main"
     paths:
       - "octofit-tracker/backend/octofit_tracker/**"
 

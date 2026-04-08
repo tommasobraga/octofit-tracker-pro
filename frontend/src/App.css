@@ -1,19 +1,19 @@
-/* OctoFit Tracker - Purple/Dark Theme */
+/* OctoFit Tracker - Soft Azure Theme */
 
 .App {
   min-height: 100vh;
-  background-color: #1a0a2e;
+  background-color: #eef2fb;
 }
 
 /* Navbar */
 .navbar-octofit {
-  background: linear-gradient(135deg, #2d0a5e 0%, #4b0082 100%);
-  box-shadow: 0 2px 10px rgba(75, 0, 130, 0.5);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
   padding: 0.75rem 1.5rem;
 }
 
 .navbar-octofit .navbar-brand {
-  color: #e0d7f5 !important;
+  color: #ffffff !important;
   font-weight: 700;
   font-size: 1.4rem;
   display: flex;
@@ -28,7 +28,7 @@
 }
 
 .navbar-octofit .nav-link {
-  color: #c9b8f0 !important;
+  color: #bfdbfe !important;
   font-weight: 500;
   padding: 0.5rem 1rem !important;
   border-radius: 6px;
@@ -38,15 +38,15 @@
 .navbar-octofit .nav-link:hover,
 .navbar-octofit .nav-link.active {
   color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navbar-octofit .navbar-toggler {
-  border-color: rgba(201, 184, 240, 0.5);
+  border-color: rgba(191, 219, 254, 0.5);
 }
 
 .navbar-octofit .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28201, 184, 240, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28191, 219, 254, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Main content */
@@ -58,43 +58,63 @@
 
 /* Page headings */
 .page-title {
-  color: #c9b8f0;
+  color: #1e40af;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #4b0082;
+  border-bottom: 2px solid #bfdbfe;
   padding-bottom: 0.5rem;
 }
 
 /* Tables */
 .octofit-table {
-  background-color: #2a1045;
-  color: #e0d7f5;
+  background-color: #ffffff;
+  color: #0f172a;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(75, 0, 130, 0.3);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
+  --bs-table-bg: #ffffff;
+  --bs-table-color: #0f172a;
+  --bs-table-border-color: rgba(59, 130, 246, 0.12);
+  --bs-table-striped-bg: #f0f7ff;
+  --bs-table-striped-color: #0f172a;
+  --bs-table-hover-bg: #dbeafe;
+  --bs-table-hover-color: #1e40af;
+  margin-bottom: 0;
 }
 
 .octofit-table thead th {
-  background-color: #4b0082;
+  background-color: #2563eb;
   color: #ffffff;
   font-weight: 600;
   border: none;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .octofit-table tbody tr {
-  border-color: rgba(75, 0, 130, 0.3);
-  transition: background-color 0.2s ease;
+  background-color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.1);
+  transition: background-color 0.15s ease;
+}
+
+.octofit-table tbody tr:nth-child(even) {
+  background-color: #f0f7ff;
+  --bs-table-bg: #f0f7ff;
 }
 
 .octofit-table tbody tr:hover {
-  background-color: rgba(75, 0, 130, 0.2);
+  background-color: #dbeafe !important;
+  --bs-table-bg: #dbeafe;
 }
 
 .octofit-table tbody td {
-  color: #e0d7f5;
-  padding: 0.85rem 1rem;
+  color: #1e293b;
+  padding: 0.95rem 1.2rem;
   vertical-align: middle;
+  border-color: rgba(59, 130, 246, 0.1);
+  font-size: 0.95rem;
 }
 
 /* Loading spinner */
@@ -112,22 +132,22 @@
 }
 
 .home-hero h1 {
-  color: #c9b8f0;
+  color: #1e40af;
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
 .home-hero p {
-  color: #a89cc8;
+  color: #475569;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2rem;
 }
 
 .feature-card {
-  background-color: #2a1045;
-  border: 1px solid rgba(75, 0, 130, 0.4);
+  background-color: #ffffff;
+  border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1rem;
@@ -136,32 +156,91 @@
 
 .feature-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(75, 0, 130, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
 }
 
 .feature-card h5 {
-  color: #c9b8f0;
+  color: #1d4ed8;
   font-weight: 600;
 }
 
 .feature-card p {
-  color: #a89cc8;
+  color: #64748b;
   margin: 0;
 }
 
 /* Rank badge */
 .rank-badge {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   font-weight: 700;
   font-size: 0.85rem;
 }
 
-.rank-1 { background-color: #ffd700; color: #1a0a2e; }
-.rank-2 { background-color: #c0c0c0; color: #1a0a2e; }
-.rank-3 { background-color: #cd7f32; color: #1a0a2e; }
-.rank-other { background-color: #4b0082; color: #ffffff; }
+.rank-1 { background-color: #fbbf24; color: #1c1917; }
+.rank-2 { background-color: #94a3b8; color: #1c1917; }
+.rank-3 { background-color: #c2855a; color: #ffffff; }
+.rank-other { background-color: #dbeafe; color: #1d4ed8; }
+
+/* Activity type badge */
+.activity-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #eff6ff;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #1d4ed8;
+  text-transform: capitalize;
+}
+
+/* Workout cards */
+.workout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.workout-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 12px;
+  padding: 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.workout-card h5 {
+  color: #1d4ed8;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.workout-card p {
+  color: #64748b;
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.workout-duration {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background-color: #eff6ff;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #2563eb;
+}

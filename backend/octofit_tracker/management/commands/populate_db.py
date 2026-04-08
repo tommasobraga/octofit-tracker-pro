@@ -101,4 +101,3 @@ class Command(BaseCommand):
             self.stdout.write(f'  Created workout: {name}')
 
         self.stdout.write(self.style.SUCCESS('Database populated successfully!'))
-

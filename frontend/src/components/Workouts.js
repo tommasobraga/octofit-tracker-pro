@@ -1,79 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useFetch } from '../hooks/useFetch';
+import PageShell from './ui/PageShell';
 
-function Workouts() {
-  const [workouts, setWorkouts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const apiUrl = process.env.REACT_APP_CODESPACE_NAME
-      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
-      : 'http://localhost:8000/api/workouts/';
-
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Workouts data:', data);
-        setWorkouts(Array.isArray(data) ? data : data.results || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching workouts:', err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner-border text-light" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div className="alert alert-danger">Error loading workouts: {error}</div>;
-  }
-
+export default function Workouts() {
+  const { data, loading, error } = useFetch('workouts');
   return (
-    <div>
-      <h2 className="page-title">💪 Workouts</h2>
-      <div className="table-responsive">
-        <table className="table octofit-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            {workouts.length === 0 ? (
-              <tr>
-                <td colSpan="3" className="text-center">No workouts found.</td>
-              </tr>
-            ) : (
-              workouts.map((workout, index) => (
-                <tr key={workout._id || workout.id || index}>
-                  <td>{workout.name || '—'}</td>
-                  <td>{workout.description || '—'}</td>
-                  <td>{workout.duration ? `${workout.duration} min` : '—'}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+    <PageShell title="💪 Workouts" loading={loading} error={error} resource="workouts">
+      <div className="workout-grid">
+        {data.map((w, i) => (
+          <div className="workout-card" key={w.id || i}>
+            <h5>{w.name}</h5>
+            <p>{w.description}</p>
+            <span className="workout-duration">⏱ {w.duration} min</span>
+          </div>
+        ))}
       </div>
-    </div>
+    </PageShell>
   );
 }
-
-export default Workouts;

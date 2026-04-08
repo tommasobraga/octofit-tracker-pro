@@ -40,3 +40,6 @@ __pycache__/
 
 # MongoDB local data directory (if used inside the repo)
 data/
+
+# Claude Code local settings
+.claude/

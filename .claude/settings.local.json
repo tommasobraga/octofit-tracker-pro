@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python manage.py runserver 8090)",
+      "Bash(npm start:*)",
+      "Bash(gh issue:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(python manage.py populate_db)",
+      "Bash(python:*)",
+      "Bash(pip show:*)",
+      "Bash(git rm:*)",
+      "Bash(git reset:*)"
+    ]
+  }
+}

@@ -11,6 +11,8 @@
 *.env.example text eol=lf
 *.css text eol=lf
 *.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
 
 # Binary files — no line ending conversion
 *.png binary

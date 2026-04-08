@@ -1,5 +1,6 @@
 import datetime
 from django.core.management.base import BaseCommand
+from django.contrib.auth.hashers import make_password
 from octofit_tracker.models import OctoFitUser, Team, Activity, Leaderboard, Workout
 
 
@@ -32,13 +33,13 @@ class Command(BaseCommand):
 
         marvel_users = []
         for name, email, password in marvel_heroes:
-            user = OctoFitUser.objects.create(name=name, email=email, password=password)
+            user = OctoFitUser.objects.create(name=name, email=email, password=make_password(password))
             marvel_users.append(user)
             self.stdout.write(f'  Created user: {name}')
 
         dc_users = []
         for name, email, password in dc_heroes:
-            user = OctoFitUser.objects.create(name=name, email=email, password=password)
+            user = OctoFitUser.objects.create(name=name, email=email, password=make_password(password))
             dc_users.append(user)
             self.stdout.write(f'  Created user: {name}')
 

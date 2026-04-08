@@ -28,22 +28,17 @@
     }
     },
     "forwardPorts": [
-        3000, // React default port
-        8000, // Django default port
-        27017 // MongoDB default port
+        3000, // React dev server
+        8090  // Django REST API
     ],
     "portAttributes": {
-      "3000": { // React port attributes
-      "label": "octofit-tracker",
-      "onAutoForward": "notify"
+      "3000": {
+        "label": "octofit-tracker",
+        "onAutoForward": "notify"
       },
-      "8000": { // Django port attributes
-      "label": "octofit-api",
-      "onAutoForward": "notify"
-      },
-      "27017": { // MongoDB port attributes
-      "label": "octofit-mongodb",
-      "onAutoForward": "silent"
+      "8090": {
+        "label": "octofit-api",
+        "onAutoForward": "notify"
       }
     }
 }

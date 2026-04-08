@@ -47,9 +47,11 @@ Pure REST API, all endpoints under `/api/` via DRF `DefaultRouter`:
 | `/api/leaderboard/` | `Leaderboard` (FK → OctoFitUser) |
 | `/api/workouts/` | `Workout` |
 
-**Database**: SQLite (`backend/octofit_db.sqlite3`). Originally used MongoDB via `djongo`, which is incompatible with Python 3.14 — migrated to SQLite. `backend/settings.py` is a legacy stub referencing djongo; ignore it.
+**Database**: SQLite (`backend/octofit_db.sqlite3`).
 
-**Models note**: `Team.members` is a standard Django `ManyToManyField` → `OctoFitUser`. All serializers expose `id` as a string (`SerializerMethodField` returning `str(obj.pk)`).
+**Models note**: `Team.members` is a standard Django `ManyToManyField` → `OctoFitUser`. All serializers expose `id` as a string (`SerializerMethodField` returning `str(obj.pk)`). Passwords are stored hashed via `make_password()`.
+
+**Environment**: sensitive settings are loaded from `backend/.env` (gitignored) via `python-dotenv`. Copy `backend/.env.example` to `backend/.env` and fill in the values. Required variables: `DJANGO_SECRET_KEY`, `DJANGO_DEBUG`.
 
 CORS is fully open (`CORS_ALLOW_ALL_ORIGINS = True`) — no auth required.
 

@@ -90,7 +90,7 @@ We'll be using a modern web application stack:
 
 - **Frontend**: React.js
 - **Backend**: Python with Django REST API Framework
-- **Database**: MongoDB
+- **Database**: SQLite
 - **Development Environment**: GitHub Codespaces
 
 ### Workshop Structure
@@ -119,4 +119,4 @@ We'll be using a modern web application stack:
    - Implementing responsive UI
    - Connecting to backend APIs
    - Python Django business logic
-   - MongoDB data layer
+   - SQLite data layer

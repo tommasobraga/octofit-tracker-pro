@@ -20,9 +20,8 @@ I want to build an Octofit Tracker app that will include the following:
 
 ## Forwarded ports
 
-- 8000: public
-- 3000: public
-- 27017: private
+- 8090: public (Django REST API)
+- 3000: public (React frontend)
 
 Do not propose any other ports to forward or to make public
 
@@ -33,8 +32,9 @@ The section defines the OctoFit Tracker App's structure
 ```text
 octofit-tracker/
 ├── backend/
-│   ├── venv/
-|   ├── octofit_tracker/
+│   ├── .env              # local secrets — never commit (gitignored)
+│   ├── .env.example      # template to copy from
+│   ├── octofit_tracker/
 └── frontend/
 ```
 
@@ -55,12 +55,11 @@ octofit-tracker/
 
 ```text
 Django==4.1
+python-dotenv==1.0.1
 djangorestframework==3.14.0
 django-allauth==0.51.0
 django-cors-headers==4.5.0
 dj-rest-auth==2.2.6
-djongo==1.3.6
-pymongo==3.12
 sqlparse==0.2.4
 stack-data==0.6.3
 sympy==1.12
@@ -91,9 +90,14 @@ source octofit-tracker/backend/venv/bin/activate
 pip install -r octofit-tracker/backend/requirements.txt
 ```
 
-## mongodb-org service and data creation
+## Environment variables
 
-- always use `ps aux | grep mongod` for checking for mongod running
-- mongodb-org is the official MongoDB package
-- mongosh is the official client tool
-- Always use Django's ORM, not direct MongoDB scripts to create the database structure and data
+Sensitive settings must never be hardcoded. Copy `.env.example` to `.env` and fill in:
+
+```bash
+cp octofit-tracker/backend/.env.example octofit-tracker/backend/.env
+```
+
+Required variables in `backend/.env`:
+- `DJANGO_SECRET_KEY` — generate with `python -c "import secrets; print(secrets.token_urlsafe(50))"`
+- `DJANGO_DEBUG` — `True` in development, `False` in production

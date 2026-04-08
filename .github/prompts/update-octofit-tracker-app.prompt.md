@@ -8,6 +8,6 @@ description: 'Update Django app for OctoFit Tracker with MongoDB, CORS, and all 
 
 - All Django project files are in the `octofit-tracker/backend/octofit_tracker` directory.
 
-1. Update `settings.py` for MongoDB connection and CORS.
+1. Update `settings.py` for SQLite connection, CORS, and load env vars from `backend/.env` via `python-dotenv`.
 2. Update `models.py`, `serializers.py`, `urls.py`, `views.py`, `tests.py`, and `admin.py` to support users, teams, activities, leaderboard, and workouts collections.
 3. Ensure `/` points to the api and `api_root` is present in `urls.py`.

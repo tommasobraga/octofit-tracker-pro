@@ -8,7 +8,9 @@ export function useFetch(endpoint) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/${endpoint}/`)
+    const controller = new AbortController();
+
+    fetch(`${API_BASE}/api/${endpoint}/`, { signal: controller.signal })
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -18,9 +20,12 @@ export function useFetch(endpoint) {
         setLoading(false);
       })
       .catch(err => {
+        if (err.name === 'AbortError') return;
         setError(err.message);
         setLoading(false);
       });
+
+    return () => controller.abort();
   }, [endpoint]);
 
   return { data, loading, error };

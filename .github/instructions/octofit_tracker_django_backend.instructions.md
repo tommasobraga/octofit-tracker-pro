@@ -13,7 +13,7 @@ Should always contain the following:
 import os
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 if os.environ.get('CODESPACE_NAME'):
-    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
+    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8090.app.github.dev")
 ```
 
 ## serializers.py
@@ -36,9 +36,9 @@ Should always use the codespace environment variable for the URL
 import os
 codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
-    base_url = f"https://{codespace_name}-8000.app.github.dev"
+    base_url = f"https://{codespace_name}-8090.app.github.dev"
 else:
-    base_url = "http://localhost:8000"
+    base_url = "http://localhost:8090"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
